@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>React JS</title>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+  <div id="site"></div> 
+  <script type="text/babel">
+      //let botao = React.createElement('button',{},'clique aqui');//elemento/ atributos / o que vai aparecer como valor no botão
+      let botao = <button>clique aqui alterado</button>;
+      ReactDOM.render(
+          botao,
+          document.getElementById('site')
+      );//função que renderiza o React
+  </script>
+</body>
+</html>
