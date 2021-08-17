@@ -30,9 +30,10 @@ export default App
 */
 
 
-///////////// aula 3 de react/////////////////////
+//===============> aula 3 de react <====================
 //JSX =! html
 /*
+
 function App()
 {
   //no JSx só pode retornar um elemento
@@ -45,7 +46,7 @@ function App()
           </>
 }
 */
-///////////////////////////segunda forma de fazer////////////////
+//<------------------segunda forma de fazer------------------->
 /*
 function formatarNome(usuario)
 {
@@ -65,7 +66,8 @@ function App()
          </>
 }
 */
-////teceira forma de fazer///////////////////////////
+//<------------------terceira forma de fazer------------------->
+/*
 function formatarNome(usuario)
 {
   return usuario.nome+' '+usuario.sobrenome;
@@ -77,5 +79,45 @@ function App()
   return <>
           <img src= {imagem}/>
          </>
+}
+export default App;
+*/
+
+//===============> aula 4 de react(props) <====================
+/*
+function BemVindo(props)
+{
+  return <h1>Olá {props.nome}: você tem {props.idade} anos!</h1>
+}
+//usuando o prop =>  passando propriedades par ao componente
+
+function App()
+{
+  return <>
+    <BemVindo nome='Pedro' idade = '28'/>
+    <BemVindo nome='Bonieky'idade = '90'/>
+    <BemVindo nome='Amanda'idade = '29'/>
+  </>;
+}
+*/
+//<------------------segunda forma de fazer------------------->
+function Avatar(props) {
+  return(
+  <div>
+    <img src={props.url} alt={props.name} />
+    <br/>
+    <spam>{props.name}</spam>
+  </div>
+  )
+}
+function App()
+{
+  let user = {
+    url:'http://www.google.com.br/google.jpg',
+    name:'Google'
+  }
+  return <>
+    <Avatar url={user.url} name={user.name}/>
+  </>; 
 }
 export default App;
