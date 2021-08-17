@@ -1,5 +1,6 @@
 //todo elemento é uum componente
 import React from 'react';
+//import './App.css';
 //apresentando classe como componente
 /*
 class App extends React.Component
@@ -28,7 +29,6 @@ let App = () => <h1>Testando 10,11,12</h1>
 //exportar o app(class)
 export default App
 */
-
 
 //===============> aula 3 de react <====================
 //JSX =! html
@@ -89,7 +89,7 @@ function BemVindo(props)
 {
   return <h1>Olá {props.nome}: você tem {props.idade} anos!</h1>
 }
-//usuando o prop =>  passando propriedades par ao componente
+//usuando o prop =>  passando propriedades para o componente
 
 function App()
 {
@@ -101,10 +101,60 @@ function App()
 }
 */
 //<------------------segunda forma de fazer------------------->
+/*
 function Avatar(props) {
   return(
   <div>
     <img src={props.url} alt={props.name} />
+    <br/>
+    <spam>{props.name}</spam>
+  </div>
+  )
+}
+function App()
+{
+  let user = {
+    url:'http://www.google.com.br/google.jpg',
+    name:'Google'
+  }
+  return <>
+    <Avatar url={user.url} name={user.name}/>
+  </>; 
+}
+export default App;
+*/
+
+
+//===============> aula 5 de react(styles) <====================
+//acrescentando css no componente
+/*
+function Avatar(props) {
+  return(
+  <div className="avatar">
+    <img src={props.url} alt={props.name} />
+    <br/>
+    <spam>{props.name}</spam>
+  </div>
+  )
+}
+function App()
+{
+  let user = {
+    url:'http://www.google.com.br/google.jpg',
+    name:'Google'
+  }
+  return <>
+    <Avatar url={user.url} name={user.name}/>
+  </>; 
+}
+export default App;
+*/
+//<------------------segunda forma de fazer------------------->
+//acrescentando css no componente via stylesheet
+function Avatar(props) {
+  return(
+  <div style={{backgroundColor:'#ff0000',padding: 20 ,width: 150}}>
+    <img style={{width: 50, height: 50}} src={props.url} alt={props.name} />
     <br/>
     <spam>{props.name}</spam>
   </div>
