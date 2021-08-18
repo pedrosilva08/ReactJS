@@ -175,6 +175,8 @@ function App()
 
 export default App;
 */
+
+
 //===============> aula 6 de react(styles) <====================
 /*
 const Site = styled.div`
@@ -196,7 +198,10 @@ function App()
 };
 export default App;
 */
+
+
 //===============> aula 7 de react(styles) <====================
+/*
 const Site = styled.div`
 width:400px;
 height:400px;
@@ -226,3 +231,29 @@ function App()
   )
 };
 export default App;
+*/
+
+
+//===============> aula 8 de react(styles) <====================
+const Site = styled.div`
+width:400px;
+height:400px;
+background-color #0000ff;
+`;
+const Botao = styled.button`
+font-size:19px;
+padding:10px 15px;
+background-color: ${props => props.ativo == true ? '#0000ff' : '#ccc'};
+background-color: ${props => props.ativo == true ? '#FFF' : '#000'};
+`;
+function App()
+{
+  return (
+    <Site>
+      <Botao ativo={true}>Clique aqui</Botao>
+      <Botao ativo={false}>Clique aqui</Botao>
+    </Site>
+  )
+};
+export default App;
+
