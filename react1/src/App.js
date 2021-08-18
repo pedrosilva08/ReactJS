@@ -176,6 +176,7 @@ function App()
 export default App;
 */
 //===============> aula 6 de react(styles) <====================
+/*
 const Site = styled.div`
 width:400px;
 height:400px;
@@ -190,6 +191,37 @@ function App()
   return (
     <Site>
       <Title>Titulo bem legal</Title>
+    </Site>
+  )
+};
+export default App;
+*/
+//===============> aula 7 de react(styles) <====================
+const Site = styled.div`
+width:400px;
+height:400px;
+background-color #00ff00;
+`;
+const Botao = styled.button`
+padding:10px 15px;
+border:3px dashed #ff0000;
+font-size:19px;
+color:#ff0000;
+background-color:#fff;
+margin:5px;
+border-radius:5px;
+`;
+
+const BotaoPequeno  = styled(Botao)`
+  padding:5px 10px;
+  font-size:16px;
+`;
+function App()
+{
+  return (
+    <Site>
+      <Botao>Clique aqui</Botao>
+      <BotaoPequeno>Clique aqui</BotaoPequeno>
     </Site>
   )
 };
