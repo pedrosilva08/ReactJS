@@ -1,5 +1,5 @@
 //todo elemento é uum componente
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import styled from 'styled-components';
 
@@ -235,6 +235,7 @@ export default App;
 
 
 //===============> aula 8 de react(styles) <====================
+/*
 const Site = styled.div`
 width:400px;
 height:400px;
@@ -256,4 +257,23 @@ function App()
   )
 };
 export default App;
+*/
 
+
+//===============> aula 9 de react(useState) <====================
+function App() {
+  //nome e ação que será feita
+  const [ contagem, setContagem ] = useState( 0 );
+
+  const botaoAction = () => {
+    setContagem(contagem + 1);
+  };
+
+  return (
+    <>
+      <div>{contagem} vezes</div>
+      <button onClick={botaoAction}>Clique para aumentar</button>
+    </>
+  )
+};
+export default App;
