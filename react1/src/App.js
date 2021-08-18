@@ -1,6 +1,8 @@
 //todo elemento é uum componente
 import React from 'react';
-//import './App.css';
+import './App.css';
+import styled from 'styled-components';
+
 //apresentando classe como componente
 /*
 class App extends React.Component
@@ -147,10 +149,10 @@ function App()
     <Avatar url={user.url} name={user.name}/>
   </>; 
 }
-export default App;
-*/
+
 //<------------------segunda forma de fazer------------------->
 //acrescentando css no componente via stylesheet
+
 function Avatar(props) {
   return(
   <div style={{backgroundColor:'#ff0000',padding: 20 ,width: 150}}>
@@ -170,4 +172,25 @@ function App()
     <Avatar url={user.url} name={user.name}/>
   </>; 
 }
+
+export default App;
+*/
+//===============> aula 6 de react(styles) <====================
+const Site = styled.div`
+width:400px;
+height:400px;
+background-color #00ff00;
+`;
+const Title = styled.h1`
+color:#ff0000;
+font-size:18px;
+`;
+function App()
+{
+  return (
+    <Site>
+      <Title>Titulo bem legal</Title>
+    </Site>
+  )
+};
 export default App;
