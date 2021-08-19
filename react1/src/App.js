@@ -281,6 +281,7 @@ export default App;
 */
 
 //===============> aula 10 de react(Campo de input) <====================
+/*
 const Input = styled.input`
 width:400px;
 height:30px;
@@ -313,5 +314,34 @@ function App() {
   )
 };
 export default App;
+*/
+//===============> aula 11 de react(Condicional de exibição) <====================
+const Input = styled.input`
+width:400px;
+height:30px;
+font-size:16px;
+padding:10px;
+border:1px solid black;
+`;
 
+function App() {
 
+  const [email, setEmail] = useState('');
+  const [isLogged, setLogged] = useState(true);
+  const handleEmailInput = (e) => {
+    setEmail(e.target.value);
+  };
+
+  return (
+    <>
+      <Input  placeholder="digite um email" type='email' value={email} onChange={handleEmailInput}/>
+      
+      {email.length > 0 && 
+        <p>{email.length} caractere{email.length != 1 ? 's' : ''}</p>
+      };
+
+      {isLogged ? <button>Sair</button> : <button>Fazer login</button>}
+    </>
+  )
+};
+export default App;
