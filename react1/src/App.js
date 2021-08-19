@@ -316,12 +316,13 @@ function App() {
 export default App;
 */
 //===============> aula 11 de react(Condicional de exibição) <====================
+/*
 const Input = styled.input`
-width:400px;
-height:30px;
-font-size:16px;
-padding:10px;
-border:1px solid black;
+  width:400px;
+  height:30px;
+  font-size:16px;
+  padding:10px;
+  border:1px solid black;
 `;
 
 function App() {
@@ -338,10 +339,55 @@ function App() {
       
       {email.length > 0 && 
         <p>{email.length} caractere{email.length != 1 ? 's' : ''}</p>
-      };
+      }
 
       {isLogged ? <button>Sair</button> : <button>Fazer login</button>}
     </>
   )
 };
+*/
+//===============> aula 12 de react(exercicio calculadora) <====================
+const Input = styled.input`
+  width:400px;
+  height:30px;
+  font-size:16px;
+  padding:5px;
+  border:1px solid black;
+`;
+const Div = styled.div`
+margin:20px;
+`;
+function App(){
+
+    const [price, setPrice] = useState(0);
+    const [tip, setTip] = useState(10);
+    const Tip =  (tip * price/100);
+    const Total = parseFloat(price) + parseFloat(Tip);
+
+    const handlePriceInput = (e) => {
+      setPrice(e.target.value);
+    };
+    const handleTipInput = (e) => {
+      setTip(e.target.value);
+    };
+    return (
+        <Div>
+            <h1>Calculadora de Gorjeta</h1>
+            <h5>Quanto deu a conta?</h5>
+            <Input type="number" value={price} onChange={handlePriceInput}/>
+            <br/>
+            <h5>Quanto deu a conta?</h5>
+            <Input type="number" value={tip} onChange={handleTipInput}/>
+            
+            {price > 0 &&
+              <div>
+                <p>Sub-total: R$ {price}</p>
+                <p>Gorjeta ({tip}%): R$ {Tip}</p>
+                <p>Total: R${Total}</p>
+              </div>
+            }
+        </Div>
+       
+    )
+}
 export default App;
