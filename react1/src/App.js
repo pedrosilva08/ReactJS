@@ -261,6 +261,7 @@ export default App;
 
 
 //===============> aula 9 de react(useState) <====================
+/*
 function App() {
   //nome e ação que será feita
   const [ contagem, setContagem ] = useState( 0 );
@@ -277,3 +278,40 @@ function App() {
   )
 };
 export default App;
+*/
+
+//===============> aula 10 de react(Campo de input) <====================
+const Input = styled.input`
+width:400px;
+height:30px;
+font-size:16px;
+padding:10px;
+border:1px solid black;
+`;
+
+function App() {
+  //nome e ação que será feita
+  
+  const [email, setEmail] = useState('');
+  const [password,setPassword] = useState('');
+
+  const handleEmailInput = (e) => {
+    setEmail(e.target.value);
+  };
+  const handlePasswordInput = (e) => {
+    setPassword(e.target.value)
+  };
+  const handleButton = () => {
+    alert(email+' - '+password);
+  }
+  return (
+    <>
+      <Input  placeholder="digite um email" type='email' value={email} onChange={handleEmailInput} />
+      <Input  placeholder="digite uma senha" type='password' value={password} onChange={handlePasswordInput} />
+      <button onClick={handleButton}>Dizer</button>
+    </>
+  )
+};
+export default App;
+
+
