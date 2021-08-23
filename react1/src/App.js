@@ -2,10 +2,11 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import styled from 'styled-components';
+import SearchBox from './Components/SearchBox';
 
 //apresentando classe como componente
 /*
-class App extends React.Component
+class App extends React.Component 
 {
   render()
   {
@@ -394,6 +395,7 @@ function App(){
 export default App;
 */
 //===============> aula 13 de react(usando useEffect) <====================
+/*
 function App(){
 
   const [contagem, setContagem] = useState(0);
@@ -410,7 +412,44 @@ function App(){
           <h1>Contagem: {contagem}</h1>
           <button onClick={aumentarAction}>Aumentar Numero</button>
       </>
-     )
+     );
 };
 
+
+function App(){
+  const [contagem,setContagem] = useState(0);
+  useEffect(()=>{
+    document.title = 'Contagem: ' + contagem;
+  },[contagem])
+  const aumentarAction = () => {
+    setContagem(contagem + 1);
+  }
+  const diminuirAction = () => {
+    if(contagem > 0){
+      setContagem(contagem - 1);
+    }
+  }
+
+  return (
+    <>
+      <h1>Contagem: {contagem}</h1>
+      <button onClick={aumentarAction}>Aumentar contagem</button>
+      <button onClick={diminuirAction}>Diminuir contagem</button>
+    </>
+  );
+}
+export default App;
+*/
+//===============> aula 14 de react(Separando em components) <====================
+function App(){
+
+  return (
+    <>
+      <h1>Lista de Tarefas</h1>
+      <SearchBox frasePadrao = "Faça sua busca..."/>
+      <SearchBox frasePadrao = "Digite seu nome"/>
+      <SearchBox />
+    </>
+  );
+}
 export default App;
