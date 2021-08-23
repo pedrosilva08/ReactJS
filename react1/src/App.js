@@ -441,6 +441,7 @@ function App(){
 export default App;
 */
 //===============> aula 14 de react(Separando em components) <====================
+/*
 function App(){
 
   return (
@@ -452,4 +453,37 @@ function App(){
     </>
   );
 }
+
+export default App;
+*/
+//===============> aula 15 de react(trocas de dados entre components) <====================
+function App(){
+
+  const [searchText, setsearchText] = useState('');
+
+  function handleSearchInput(novoTexto){
+    setsearchText( novoTexto );
+  }
+
+  return (
+    <>
+      <h1>Lista de Tarefas</h1>
+
+      <SearchBox 
+        frasePadrao = "Faça sua busca..."
+        onChangeText={handleSearchInput}
+      />
+
+      <SearchBox 
+        frasePadrao = {searchText}
+      />
+
+      <hr/> 
+
+      Texto procurado {searchText}
+
+    </>
+  );
+}
+
 export default App;
