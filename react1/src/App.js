@@ -486,7 +486,7 @@ function App(){
   );
 }
 export default App;
-*/
+
 //===============> aula 16 de react(Exbidindo listas) <====================
 
 function App(){
@@ -517,6 +517,59 @@ function App(){
       <SearchBox 
         frasePadrao = "Faça sua busca..."
         onChangeText={handleSearchInput}
+      />
+
+      <hr/> 
+
+      <ul>
+      {list.map((item, index)=>( 
+        <li key={index}>
+          {item.done &&
+            <del>{item.title}</del> 
+          }
+          {!item.done &&
+            item.title 
+          }
+          </li>
+        )
+      )}
+      </ul>
+    </>
+  );
+}
+export default App;
+*/
+//===============> aula 17 de react(Exbidindo listas e adcionando novos itens) <====================
+function App(){
+
+  const [searchText, setsearchText] = useState('');
+  const [list, setList] = useState([]);
+
+  useEffect(()=>{
+
+    setList([
+
+      {title:'Comprar o bolo', done:false},
+      {title:'Pegar o cachorro ma petshop', done:true},
+      {title:'Gravar aula', done:false}
+
+    ])
+  
+  },[]);
+
+  function addAction(newItem){
+    let newList = [...list,{title:newItem, done:false}]
+    setList(newList);
+  }
+
+
+  return (
+    <>
+      <h1>Lista de Tarefas</h1>
+
+      <SearchBox 
+        frasePadrao = "Adicione um item"
+        onEnter={addAction}
       />
 
       <hr/> 
