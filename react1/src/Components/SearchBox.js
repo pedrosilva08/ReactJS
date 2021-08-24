@@ -52,7 +52,9 @@ function SearchBox(props){
           placeholder={props.frasePadrao ?? 'Digite alguma coisa'}
           />
     )
+    //exportando aquivo 
 
 }
-//exportando aquivo 
 export default SearchBox;
+
+

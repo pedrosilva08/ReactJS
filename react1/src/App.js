@@ -455,7 +455,7 @@ function App(){
 }
 
 export default App;
-*/
+
 //===============> aula 15 de react(trocas de dados entre components) <====================
 function App(){
 
@@ -485,5 +485,56 @@ function App(){
     </>
   );
 }
+export default App;
+*/
+//===============> aula 16 de react(Exbidindo listas) <====================
 
+function App(){
+
+  const [searchText, setsearchText] = useState('');
+  const [list, setList] = useState([]);
+
+  useEffect(()=>{
+
+    setList([
+
+      {title:'Comprar o bolo', done:false},
+      {title:'Pegar o cachorro ma petshop', done:true},
+      {title:'Gravar aula', done:false}
+
+    ])
+  
+  },[]);
+
+  function handleSearchInput(novoTexto){
+    setsearchText( novoTexto );
+  }
+
+  return (
+    <>
+      <h1>Lista de Tarefas</h1>
+
+      <SearchBox 
+        frasePadrao = "Faça sua busca..."
+        onChangeText={handleSearchInput}
+      />
+
+      <hr/> 
+
+      <ul>
+      {list.map((item, index)=>( 
+        <li key={index}>
+          {item.done &&
+            <del>{item.title}</del> 
+          }
+          {!item.done &&
+            item.title 
+          }
+          </li>
+        )
+      )}
+      </ul>
+    </>
+  );
+}
 export default App;
