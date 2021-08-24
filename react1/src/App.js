@@ -591,8 +591,8 @@ function App(){
   );
 }
 export default App;
-*/
-//===============> aula 18 de react(Exbidindo listas e Marcando como feito) <====================
+
+//===============> aula 18 de react(Exibidindo listas e Marcando como feito) <====================
 function App(){
 
   const [searchText, setsearchText] = useState('');
@@ -603,7 +603,7 @@ function App(){
     setList([
 
       {title:'Comprar o bolo', done:false},
-      {title:'Pegar o cachorro ma petshop', done:true},
+      {title:'Pegar o cachorro na petshop', done:true},
       {title:'Gravar aula', done:false}
 
     ])
@@ -645,6 +645,7 @@ function App(){
           <button onClick={()=>handleToggleDone(index)}>
             {item.done && 'Desfazer'}
             {!item.done && 'Fazer'}
+            
           </button>
           </li>
         )
@@ -654,3 +655,22 @@ function App(){
   );
 }
 export default App;
+*/
+//===============> aula 19 de react(Conceitos de localStorage) <====================
+function App(){
+  const [name,setName] = useState(localStorage.getItem('name'));
+
+  useEffect(()=>{
+
+    localStorage.setItem('name',name)
+
+  },[name])
+
+  return (
+    <>
+      <input type="text" value={name} onChange={e=>setName(e.target.value)}/>
+    </>
+  );
+}
+export default App;
+
