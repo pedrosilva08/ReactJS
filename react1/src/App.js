@@ -538,7 +538,7 @@ function App(){
   );
 }
 export default App;
-*/
+
 //===============> aula 17 de react(Exbidindo listas e adcionando novos itens) <====================
 function App(){
 
@@ -583,6 +583,69 @@ function App(){
           {!item.done &&
             item.title 
           }
+          </li>
+        )
+      )}
+      </ul>
+    </>
+  );
+}
+export default App;
+*/
+//===============> aula 18 de react(Exbidindo listas e Marcando como feito) <====================
+function App(){
+
+  const [searchText, setsearchText] = useState('');
+  const [list, setList] = useState([]);
+
+  useEffect(()=>{
+
+    setList([
+
+      {title:'Comprar o bolo', done:false},
+      {title:'Pegar o cachorro ma petshop', done:true},
+      {title:'Gravar aula', done:false}
+
+    ])
+  
+  },[]);
+
+  function addAction(newItem){
+    let newList = [...list,{title:newItem, done:false}]
+    setList(newList)
+  }
+  function handleToggleDone(index){
+    let newList = [...list];
+    newList[index].done = !newList[index].done
+
+    setList(newList)
+  }
+  
+
+  return (
+    <>
+      <h1>Lista de Tarefas</h1>
+
+      <SearchBox 
+        frasePadrao = "Adicione um item"
+        onEnter={addAction}
+      />
+
+      <hr/> 
+
+      <ul>
+      {list.map((item, index)=>( 
+        <li key={index}>
+          {item.done &&
+            <del>{item.title}</del> 
+          }
+          {!item.done &&
+            item.title 
+          }
+          <button onClick={()=>handleToggleDone(index)}>
+            {item.done && 'Desfazer'}
+            {!item.done && 'Fazer'}
+          </button>
           </li>
         )
       )}
