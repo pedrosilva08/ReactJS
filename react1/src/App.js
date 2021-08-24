@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import styled from 'styled-components';
 import SearchBox from './Components/SearchBox';
+import Modal from './Components/modal';
 
 //apresentando classe como componente
 /*
@@ -655,7 +656,7 @@ function App(){
   );
 }
 export default App;
-*/
+
 //===============> aula 19 de react(Conceitos de localStorage) <====================
 function App(){
   const [name,setName] = useState(localStorage.getItem('name'));
@@ -673,4 +674,22 @@ function App(){
   );
 }
 export default App;
+*/
+//===============> aula 20 de react(Modal) <====================
+function App(){
+  const [modalVisible,setModalVisible] = useState(false);
 
+  function handleButtonClick(e) {
+    setModalVisible(true);
+  }
+
+  return (
+    <>
+      <button onClick={handleButtonClick}>Abrir Modal</button>
+      <Modal visible={modalVisible} setVisible={setModalVisible}>
+        <h1>Testando 1, 2, 3...</h1>
+      </Modal>
+    </>
+  );
+}
+export default App;
