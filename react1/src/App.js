@@ -8,6 +8,7 @@ import { BrowserRouter, Switch, Route, Link, Redirect } from 'react-router-dom';
 import Home from './pages/Home'
 import Sobre from './pages/sobre'
 import Categoria from './pages/Categoria';
+import Login from './pages/login';
 
 //apresentando classe como componente
 /*
@@ -887,7 +888,7 @@ function App(){
   );
 }
 export default App;
-*/
+
 //===============> aula 26 de react(Routers parte 5) <====================
 function App(){
 
@@ -941,6 +942,67 @@ function App(){
           <Route path="/categorias">
             <Categoria/>
           </Route>
+
+          <Route path="*">
+            <h4>Página não encontrada</h4>
+          </Route>
+
+        </Switch>
+
+        <hr/>
+
+        <footer>
+          Todos os direitos reservados
+        </footer>
+      </BrowserRouter>
+    </>
+  );
+}
+export default App;
+*/
+//===============> aula 27 de react(Routers parte 6) <====================
+const isLogged = true;
+
+const PrivateRoute = ({children, ...rest})=>{
+  return (
+    <Route {...rest}>
+      {isLogged ? children : <Redirect to="/login"/>}
+    </Route>
+  )
+}
+function App(){
+
+  return (
+    <>
+      <BrowserRouter>
+        <header>
+          <h1>Meu site legal</h1>
+          <nav>
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/sobre">Sobre</Link>
+              </li>
+            </ul>
+          </nav>
+        </header>
+        <hr/>
+
+        <Switch>
+
+          <Route exact path="/">
+            <Home/>
+          </Route>
+
+          <Route exact path="/login">
+            <Login/>
+          </Route>
+
+          <PrivateRoute path="/sobre">
+            <Sobre/>
+          </PrivateRoute>
 
           <Route path="*">
             <h4>Página não encontrada</h4>
