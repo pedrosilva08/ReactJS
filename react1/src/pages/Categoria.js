@@ -2,6 +2,7 @@ import React from 'react';
 //import { useParams } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
 
+//===============>Complemento aula 24 de react(Routers parte 4) <====================
 function useQuery(){
     return new URLSearchParams(useLocation().search)
 }

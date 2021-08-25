@@ -871,6 +871,10 @@ function App(){
             <Categoria/>
           </Route>
 
+          <Route path="*">
+            <h4>Página não encontrada</h4>
+          </Route>
+
         </Switch>
 
         <hr/>
