@@ -4,7 +4,7 @@ import './App.css';
 //import styled from 'styled-components';
 //import SearchBox from './Components/SearchBox';
 //import Modal from './Components/modal';
-import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Link, Redirect } from 'react-router-dom';
 import Home from './pages/Home'
 import Sobre from './pages/sobre'
 import Categoria from './pages/Categoria';
@@ -823,7 +823,7 @@ function App(){
   );
 }
 export default App;
-*/
+
 //===============> aula 24 de react(Routers parte 4) <====================
 function App(){
 
@@ -865,6 +865,77 @@ function App(){
 
           <Route path="/sobre">
             <Sobre/>
+          </Route>
+
+          <Route path="/categorias">
+            <Categoria/>
+          </Route>
+
+          <Route path="*">
+            <h4>Página não encontrada</h4>
+          </Route>
+
+        </Switch>
+
+        <hr/>
+
+        <footer>
+          Todos os direitos reservados
+        </footer>
+      </BrowserRouter>
+    </>
+  );
+}
+export default App;
+*/
+//===============> aula 26 de react(Routers parte 5) <====================
+function App(){
+
+  return (
+    <>
+      <BrowserRouter>
+        <header>
+          <h1>Meu site legal</h1>
+          <nav>
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/sobre">Sobre</Link>
+              </li>
+              <li>
+                <Link to="/quem-somos">Quem-Somos</Link>
+              </li>
+              <li>
+                <Link to="/categorias/tipo=esporte">Esporte</Link>
+              </li>
+              <li>
+                <Link to="/categorias/tipo=noticia">Notícias</Link>
+              </li>
+              <li>
+                <Link to="/categorias/tipo=viagens">Viagens</Link>
+              </li>
+              <li>
+                <Link to="/categorias/tipo=culturapop">Cultura Pop</Link>
+              </li>
+            </ul>
+          </nav>
+        </header>
+        <hr/>
+
+        <Switch>
+
+          <Route exact path="/">
+            <Home/>
+          </Route>
+
+          <Route path="/sobre">
+            <Sobre/>
+          </Route>
+
+          <Route path="/quem-somos">
+            <Redirect to="/sobre"/>
           </Route>
 
           <Route path="/categorias">
