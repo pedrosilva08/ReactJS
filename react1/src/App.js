@@ -7,6 +7,7 @@ import './App.css';
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 import Home from './pages/Home'
 import Sobre from './pages/sobre'
+import Categoria from './pages/Categoria';
 
 //apresentando classe como componente
 /*
@@ -721,7 +722,7 @@ function App(){
   );
 }
 export default App;
-*/
+
 //===============> aula 22 de react(Routers parte 2) <====================
 function App(){
 
@@ -752,7 +753,64 @@ function App(){
           <Route path="/sobre">
             <Sobre/>
           </Route>
-          
+
+        </Switch>
+
+        <hr/>
+
+        <footer>
+          Todos os direitos reservados
+        </footer>
+      </BrowserRouter>
+    </>
+  );
+}
+export default App;
+*/
+//===============> aula 23 de react(Routers parte 3) <====================
+function App(){
+
+  return (
+    <>
+      <BrowserRouter>
+        <header>
+          <h1>Meu site legal</h1>
+          <nav>
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/sobre">Sobre</Link>
+              </li>
+              <li>
+                <Link to="/categorias/esportes">Esportes</Link>
+              </li>
+              <li>
+                <Link to="/categorias/noticias">Notícias</Link>
+              </li>
+              <li>
+                <Link to="/categorias/viagem">Viagem</Link>
+              </li>
+            </ul>
+          </nav>
+        </header>
+        <hr/>
+
+        <Switch>
+
+          <Route exact path="/">
+            <Home/>
+          </Route>
+
+          <Route path="/sobre">
+            <Sobre/>
+          </Route>
+
+          <Route exact path="/categorias/:cat">
+            <Categoria/>
+          </Route>
+
         </Switch>
 
         <hr/>
