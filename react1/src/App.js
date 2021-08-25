@@ -766,7 +766,7 @@ function App(){
   );
 }
 export default App;
-*/
+
 //===============> aula 23 de react(Routers parte 3) <====================
 function App(){
 
@@ -784,13 +784,13 @@ function App(){
                 <Link to="/sobre">Sobre</Link>
               </li>
               <li>
-                <Link to="/categorias/esportes">Esportes</Link>
+                <Link to ="/categorias/esportes">Esportes</Link>
               </li>
               <li>
-                <Link to="/categorias/noticias">Notícias</Link>
+                <Link to ="/categorias/noticia">Notícias</Link>
               </li>
               <li>
-                <Link to="/categorias/viagem">Viagem</Link>
+                <Link to ="/categorias/Viagem">Viagem</Link>
               </li>
             </ul>
           </nav>
@@ -807,7 +807,67 @@ function App(){
             <Sobre/>
           </Route>
 
-          <Route exact path="/categorias/:cat">
+          <Route path="/categorias/:cat">
+            <Categoria/>
+          </Route>
+
+        </Switch>
+
+        <hr/>
+
+        <footer>
+          Todos os direitos reservados
+        </footer>
+      </BrowserRouter>
+    </>
+  );
+}
+export default App;
+*/
+//===============> aula 24 de react(Routers parte 4) <====================
+function App(){
+
+  return (
+    <>
+      <BrowserRouter>
+        <header>
+          <h1>Meu site legal</h1>
+          <nav>
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/sobre">Sobre</Link>
+              </li>
+              <li>
+                <Link to="/categorias/tipo=esporte">Esporte</Link>
+              </li>
+              <li>
+                <Link to="/categorias/tipo=noticia">Notícias</Link>
+              </li>
+              <li>
+                <Link to="/categorias/tipo=viagens">Viagens</Link>
+              </li>
+              <li>
+                <Link to="/categorias/tipo=culturapop">Cultura Pop</Link>
+              </li>
+            </ul>
+          </nav>
+        </header>
+        <hr/>
+
+        <Switch>
+
+          <Route exact path="/">
+            <Home/>
+          </Route>
+
+          <Route path="/sobre">
+            <Sobre/>
+          </Route>
+
+          <Route path="/categorias">
             <Categoria/>
           </Route>
 
