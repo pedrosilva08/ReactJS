@@ -4,6 +4,7 @@ import './App.css';
 import styled from 'styled-components';
 import SearchBox from './Components/SearchBox';
 import Modal from './Components/modal';
+import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 
 //apresentando classe como componente
 /*
@@ -674,7 +675,7 @@ function App(){
   );
 }
 export default App;
-*/
+
 //===============> aula 20 de react(Modal) <====================
 function App(){
   const [modalVisible,setModalVisible] = useState(false);
@@ -689,6 +690,31 @@ function App(){
       <Modal visible={modalVisible} setVisible={setModalVisible}>
         <h1>Testando 1, 2, 3...</h1>
       </Modal>
+    </>
+  );
+}
+export default App;
+*/
+//===============> aula 21 de react(Routers) <====================
+function App(){
+
+  return (
+    <>
+      <BrowserRouter>
+        <header>
+          <h1>Meu site legal</h1>
+          <nav>
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/sobre">Sobre</Link>
+              </li>
+            </ul>
+          </nav>
+        </header>
+      </BrowserRouter>
     </>
   );
 }
