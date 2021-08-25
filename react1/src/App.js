@@ -1,10 +1,12 @@
 //todo elemento é uum componente
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import styled from 'styled-components';
-import SearchBox from './Components/SearchBox';
-import Modal from './Components/modal';
+//import styled from 'styled-components';
+//import SearchBox from './Components/SearchBox';
+//import Modal from './Components/modal';
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
+import Home from './pages/Home'
+import Sobre from './pages/sobre'
 
 //apresentando classe como componente
 /*
@@ -694,7 +696,7 @@ function App(){
   );
 }
 export default App;
-*/
+
 //===============> aula 21 de react(Routers) <====================
 function App(){
 
@@ -714,6 +716,50 @@ function App(){
             </ul>
           </nav>
         </header>
+      </BrowserRouter>
+    </>
+  );
+}
+export default App;
+*/
+//===============> aula 22 de react(Routers parte 2) <====================
+function App(){
+
+  return (
+    <>
+      <BrowserRouter>
+        <header>
+          <h1>Meu site legal</h1>
+          <nav>
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/sobre">Sobre</Link>
+              </li>
+            </ul>
+          </nav>
+        </header>
+        <hr/>
+
+        <Switch>
+
+          <Route exact path="/">
+            <Home/>
+          </Route>
+
+          <Route path="/sobre">
+            <Sobre/>
+          </Route>
+          
+        </Switch>
+
+        <hr/>
+
+        <footer>
+          Todos os direitos reservados
+        </footer>
       </BrowserRouter>
     </>
   );
